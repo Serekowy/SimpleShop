@@ -11,16 +11,17 @@ public class Cart {
         this.productList = new ArrayList<>();
     }
 
-    public float finalPrice() {
-        float costOfGoods = 0;
+    public void addToCart(Product product) {
+        productList.add(product);
+    }
+
+    public double finalPrice() {
+        double costOfGoods = 0;
 
         for (Product item : productList) {
-            if(item.getDiscount() > 0) {
-                //obliczenie ceny ze znizka
-            } else {
-                costOfGoods += item.getPrice();
-            }
+            costOfGoods += item.getFinalPrice();
         }
+
         return costOfGoods; //obliczyc cene koszyka z produktami i podatkami netto i z vat
     }
 }
