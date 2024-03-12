@@ -12,6 +12,15 @@ public class Cart {
     }
 
     public float finalPrice() {
-        return 0; //obliczyc cene koszyka z produktami i podatkami netto i z vat
+        float costOfGoods = 0;
+
+        for (Product item : productList) {
+            if(item.getDiscount() > 0) {
+                //obliczenie ceny ze znizka
+            } else {
+                costOfGoods += item.getPrice();
+            }
+        }
+        return costOfGoods; //obliczyc cene koszyka z produktami i podatkami netto i z vat
     }
 }

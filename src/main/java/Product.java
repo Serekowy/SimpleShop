@@ -1,12 +1,12 @@
 public class Product {
     final String name;
     final String category;
-    final float price;
-    final float tax;
-    final boolean discount;
+    final double price;
+    final int tax;
+    final int discount;
     final int id;
 
-    public Product(String name, String category, float price, float tax, boolean discount, int id) {
+    public Product(String name, String category, double price, int tax, int discount, int id) {
         this.name = name;
         this.category = category;
         this.price = price;
@@ -15,7 +15,16 @@ public class Product {
         this.id = id;
     }
 
-    public float getFinalPrice() {
+    public double getPrice() {
+        return price;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public double getFinalPrice() {
+
         return 0; //obliczenie ceny z podatkiem
     }
 
