@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 
 public class Cart {
-    final int id;
-    ArrayList<Product> productList;
-    final float discount;
+    private final int id;
+    private static int nextID = 0;
+    private final ArrayList<Product> productList;
+    private final float discount;
 
     public Cart(int id, float discount) {
-        this.id = id;
+        this.id = nextID++;
         this.discount = discount;
         this.productList = new ArrayList<>();
     }

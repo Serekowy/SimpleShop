@@ -1,14 +1,16 @@
 public class Main {
     public static void main(String[] args) {
-        PriceManager priceManager = new PriceManager();
+        BackOffice backOffice = new BackOffice();
 
-        ProductView pv =  new ProductView();
+        ProductManager mleko = new ProductManager("mleko", "spożywcze", 10.50, 23, 0);
+        ProductManager platki = new ProductManager("płatki", "spożywcze", 10.50, 23, 0);
+        ProductManager rodzynki = new ProductManager("rodzynki", "spożywcze", 50, 23, 0);
 
-        Product mleko = new Product("mleko", "spożywcze", 10.50, 23, 0);
-        Product mleko1 = new Product("mleko1", "spożywcze", 10.50, 23, 0);
+        backOffice.addProduct(mleko);
+        backOffice.addProduct(platki);
+        backOffice.addProduct(rodzynki);
 
-        pv.showProduct(mleko);
-        pv.showProduct(mleko1);
+        backOffice.showAllProducts();
     }
 
 }

@@ -1,10 +1,11 @@
 public class Product extends PriceManager {
-    final String name;
-    final String category;
-    final double price;
-    final double tax;
-    final double discount;
-    int id = 0;
+    private final String name;
+    private final String category;
+    private final double price;
+    private final double tax;
+    private final double discount;
+    private final int id;
+    private static int nextID = 0;
 
     public Product(String name, String category, double price, double tax, double discount) {
         this.name = name;
@@ -12,7 +13,7 @@ public class Product extends PriceManager {
         this.price = price;
         this.tax = tax;
         this.discount = discount;
-        id++;
+        this.id = nextID++;
     }
     public Product() {
         name = null;
@@ -41,10 +42,6 @@ public class Product extends PriceManager {
 
     public int getId() {
         return id;
-    }
-
-    public double getNetPrice() {
-        return price;
     }
 
     public double getDiscount() {
