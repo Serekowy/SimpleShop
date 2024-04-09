@@ -1,25 +1,41 @@
 import java.util.ArrayList;
 
 public class Cart {
-    private final int id;
     private static int nextID = 0;
-    private final ArrayList<Product> productList;
-    private final float discount;
+    private final ArrayList<Product> products;
+    private double allDiscounts;
+    private boolean orderDone = false;
 
-    public Cart(int id, float discount) {
-        this.id = nextID++;
-        this.discount = discount;
-        this.productList = new ArrayList<>();
+    public Cart() {
+        int id = nextID++;
+        this.products = new ArrayList<>();
+        this.allDiscounts = 0;
     }
 
     public void addToCart(Product product) {
-        productList.add(product);
+        if(!orderDone) {
+            products.add(product);
+        } else {
+            System.out.println("Koszyk został wcześniej sfinalizowany i nie można dodać nowych produktów");
+        }
     }
 
+    public void setAllDiscounts(double discounts) {
+        this.allDiscounts = discounts;
+    }
+    public void finishOrder() {
+        orderDone = true;
+    }
+    public boolean getOrderStatus() {
+        return orderDone;
+    }
+    public int getCartID() {
+        return nextID;
+    }
     public double finalPrice() {
         double costOfGoods = 0;
 
-        for (Product item : productList) {
+        for (Product item : products) {
             costOfGoods += item.getFinalPrice();
         }
 

@@ -1,4 +1,4 @@
-public class Product extends PriceManager {
+public class Product {
     private final String name;
     private final String category;
     private final double price;
@@ -52,10 +52,10 @@ public class Product extends PriceManager {
         double finalPrice = 0;
 
         if (discount > 0) {
-            finalPrice = calcGrossPrice(price, tax);
-            finalPrice = calcDiscountPrice(finalPrice, discount);
+            finalPrice = PriceManager.calcGrossPrice(price, tax);
+            finalPrice = PriceManager.calcDiscountPrice(finalPrice, discount);
         } else {
-            finalPrice = calcGrossPrice(price, tax);
+            finalPrice = PriceManager.calcGrossPrice(price, tax);
         }
 
         return finalPrice;
