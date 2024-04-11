@@ -32,8 +32,9 @@ public class BackOffice {
         if (checkCartIsStarted(cartId)) {
             Cart cart = startedCarts.get(findStartedCartInList(cartId));
             finishedCarts.add(cart);
-            cart.finishOrder();
+            cart.finishCart();
             startedCarts.remove(cart);
+            System.out.println("wykonalem sje");
         }
         //zakonczenie zamowienia
     }

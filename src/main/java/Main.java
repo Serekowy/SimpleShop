@@ -7,9 +7,12 @@ public class Main {
         ProductManager rodzynki = new ProductManager("rodzynki", "spożywcze", 50, 23, 0);
 
         Cart cart1 = new Cart();
+        System.out.println(cart1.getCartID());
         cart1.addToCart(mleko);
-        backOffice.finishCart(0);
+        backOffice.addNewCart(cart1);
         cart1.addToCart(mleko);
+        backOffice.finishCart(1);
+
 
         System.out.println(cart1.finalPrice());
 

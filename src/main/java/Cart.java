@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 
 public class Cart {
-    private static int nextID = 0;
+    private static int nextID = -1;
     private final ArrayList<Product> products;
     private double allDiscounts;
     private boolean orderDone = false;
 
     public Cart() {
-        int id = nextID++;
+        int id = ++nextID;
         this.products = new ArrayList<>();
         this.allDiscounts = 0;
     }
@@ -23,7 +23,7 @@ public class Cart {
     public void setAllDiscounts(double discounts) {
         this.allDiscounts = discounts;
     }
-    public void finishOrder() {
+    public void finishCart() {
         orderDone = true;
     }
     public boolean getOrderStatus() {
